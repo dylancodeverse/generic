@@ -28,9 +28,9 @@ Here's an example :
 
     import java.util.Date;
 
-import generic.Generic;
+    import generic.Generic;
 
-public class Person extends Generic{
+    public class Person extends Generic{
     
     String name ;
     int age ;
