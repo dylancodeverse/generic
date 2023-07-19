@@ -56,7 +56,7 @@ public class Generic extends Reflect{
         return formGeneric.getHTMLForm(getCssForm(), form, formElements) ;
     }
 
-    public String getFormHTML(String action ,String method ,String [] fieldsName , String ... ignore){
+    public String getFormHTMLSpecified(String action ,String method ,String [] fieldsName , String ... ignore){
         if (fieldsName==null) 
         {
             fieldsName= getAttributeName(ignore);
