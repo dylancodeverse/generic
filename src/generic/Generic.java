@@ -5,9 +5,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import generic.jsp.Form;
-import generic.util.GenericComparator;
 import generic.util.Reflect;
 import generic.util.SimpleGenericComparator;
+import generic.util.genericComparator.DeepField;
+import generic.util.genericComparator.GenericComparator;
 
 public class Generic extends Reflect{
     
@@ -85,7 +86,7 @@ public class Generic extends Reflect{
         Arrays.sort(object, new SimpleGenericComparator(object[0], defaultReference));
     }
 
-    public static void sort(Object [] object , String [] defaultReference ,HashMap<String,String[]> deepFields ) 
+    public static void sort(Object [] object , String [] defaultReference ,HashMap<String, DeepField> deepFields ) 
     {
         Arrays.sort(object ,new GenericComparator(object[0], defaultReference, deepFields));
     }

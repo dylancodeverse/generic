@@ -1,16 +1,18 @@
-package generic.util;
+package generic.util.genericComparator;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 
+import generic.util.Reflect;
+
 public class GenericComparator implements Comparator<Object>
 {
 
     String [] defaultFieldsReference ;
-    HashMap<String ,String[] > deeperField ;
+    HashMap <String ,DeepField > fields ;
 
-    public GenericComparator(Object objectInstance, String[] defaultFieldsReference , HashMap<String,String[]> deepFields) throws IllegalArgumentException 
+    public GenericComparator(Object objectInstance, String[] defaultFieldsReference , HashMap<String, DeepField> deepFields) throws IllegalArgumentException 
     {
         String[] fieldsName = Reflect.getAttributeName(objectInstance);
 
@@ -26,7 +28,7 @@ public class GenericComparator implements Comparator<Object>
         // Si tous les champs de defaultFieldsReference sont valides, les assigner à l'attribut de classe
         this.defaultFieldsReference = defaultFieldsReference;
 
-        this.deeperField = deepFields;
+        fields = deepFields ;
     }
 
     
@@ -38,8 +40,8 @@ public class GenericComparator implements Comparator<Object>
         {
             try 
             {
-                Object o1Value = Reflect.getValue(o1, deeperField.get(defaultFieldsReference[i]) ,0) ;
-                Object o2Value = Reflect.getValue(o2, deeperField.get(defaultFieldsReference[i]),0);
+                Object o1Value = Reflect.getValue(o1, fields.get(defaultFieldsReference[i])) ;
+                Object o2Value = Reflect.getValue(o2, fields.get(defaultFieldsReference[i])) ;
 
                 response = Reflect.compare(o1Value, o2Value) ;
                 if (response!=0) 

@@ -1,4 +1,6 @@
 package test;
+
+
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -23,8 +25,10 @@ public class App {
             new Person("Charlie", new Physic(15))
         };
 
+
+        // map.put("physic", )
         // Triez le tableau de personnes par âge en utilisant un Comparator
-        // Person.sort(pss, new String[]{"physic"},new String []{"physic","weight"});
+        // Person.sort(pss, new String[]{"physic"},);
 
     
     }

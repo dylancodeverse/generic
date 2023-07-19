@@ -4,6 +4,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import generic.util.genericComparator.DeepField;
+
 public class Reflect {
     
     public static String[] getAttributeName(Object obj , String ... ignore)
@@ -104,18 +106,28 @@ public class Reflect {
         }
     }
 
+    public static Object getValue(Object o , String fieldName) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException
+    {
+
+        Field o1Field = o.getClass().getDeclaredField(fieldName);
+        o1Field.setAccessible(true);
+        return o1Field.get(o);
+
+    }
+
     /*
      * recursion pour eviter de faire une clone si iteration
      */
-    public static Object getValue(Object o , String [] fieldName, int beginLoop) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException
+
+    public static Object getValue(Object o , DeepField deepField ) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException
     {
 
-        Field o1Field = o.getClass().getDeclaredField(fieldName[beginLoop]);
+        Field o1Field = o.getClass().getDeclaredField(deepField.getField());
         o1Field.setAccessible(true);
 
-        if (beginLoop!=fieldName.length-1) 
+        if (deepField.getDeepField()!=null) 
         {
-            return getValue(o1Field.get(o), fieldName, beginLoop+1) ;
+            return getValue(o1Field.get(o), deepField.getDeepField()) ;
         }
 
         return o1Field.get(o);

@@ -35,8 +35,8 @@ public class SimpleGenericComparator implements Comparator<Object>
         {
             try 
             {
-                Object o1Value = Reflect.getValue(o1, new String []{defaultFieldsReference[i]} ,0) ;
-                Object o2Value = Reflect.getValue(o2, new String []{defaultFieldsReference[i]},0);
+                Object o1Value = Reflect.getValue(o1, defaultFieldsReference[i] ) ;
+                Object o2Value = Reflect.getValue(o2, defaultFieldsReference[i]);
 
                 response = Reflect.compare(o1Value, o2Value) ;
                 if (response!=0) 
