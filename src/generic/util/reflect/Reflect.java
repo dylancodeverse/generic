@@ -123,6 +123,7 @@ public class Reflect {
         Field o1Field = o.getClass().getDeclaredField(deepField.getField());
         o1Field.setAccessible(true);
         Object value = o1Field.get(o);
+        
         if (deepField.getDeepField()== null) 
         {
             return value ;
