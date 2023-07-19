@@ -34,19 +34,44 @@ public class Generic extends Reflect{
         return super.getAttributeValue(this, ignore);
     }
 
+    private Class<?> [] getAttributeClasses(String... ignore)
+    {
+        ignore=getIgnore(ignore);
+        return super.getAttributeType(this, ignore);
+    }
 
-    protected String getFormHTML(String action , String method , String... ignore)
+
+    public String getFormHTML(String action , String method , String... ignore)
     {
         String [] fieldsName = getAttributeName(ignore);
         Object [] fildsValue = getAttributeValue(ignore);
+        Class<?> [] clazz    = getAttributeClasses(ignore) ;
 
 
         Form formGeneric = new Form();
-        String form = formGeneric.getForm(action, method ,"Valider");
-        String formElements = formGeneric.getFormElements(fieldsName, fieldsName, fildsValue);
+        String form = formGeneric.getForm(action, method ,getBtnValueForm());
+        String formElements = formGeneric.getFormElements(fieldsName, fieldsName, clazz ,fildsValue);
     
-        
+
         return formGeneric.getHTMLForm(getCssForm(), form, formElements) ;
+    }
+
+    public String getFormHTML(String action ,String method ,String [] fieldsName , String ... ignore){
+        if (fieldsName==null) 
+        {
+            fieldsName= getAttributeName(ignore);
+        }
+        Object [] fildsValue = getAttributeValue(ignore);
+        Class<?> [] clazz    = getAttributeClasses(ignore) ;
+
+
+        Form formGeneric = new Form();
+        String form = formGeneric.getForm(action, method ,getBtnValueForm());
+        String formElements = formGeneric.getFormElements(fieldsName, fieldsName, clazz ,fildsValue);
+    
+
+        return formGeneric.getHTMLForm(getCssForm(), form, formElements) ;
+
     }
 
     // 

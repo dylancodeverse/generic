@@ -16,7 +16,7 @@ public class Form {
 
 
 
-    public String getFormElements(String[] labelNames, String[] inputNames,Object[] defaultValue) 
+    public String getFormElements(String[] labelNames, String[] inputNames, Class<?> [] objectType ,Object[] defaultValue) 
     {
         if ( labelNames.length != inputNames.length) 
         {
@@ -27,7 +27,7 @@ public class Form {
     
         for (int i = 0; i < labelNames.length; i++) 
         {
-            formElements.append(getFormElement(labelNames[i],  inputNames[i],defaultValue[i]));
+            formElements.append(getFormElement(labelNames[i],  inputNames[i], objectType[i],defaultValue[i]));
         }
     
         return formElements.toString();
@@ -35,7 +35,7 @@ public class Form {
     
 
 
-    public String getFormElement(String labelName, String inputName, Object defaultValue) 
+    public String getFormElement(String labelName, String inputName, Class<?>  objectType , Object defaultValue) 
     {
         StringBuilder formElement = new StringBuilder();
     
@@ -64,7 +64,7 @@ public class Form {
 
         } else 
         {
-            formElement.append("    <input class=\"form-input-generated\" type=\"").append(getTypeForHTML(defaultValue)).append("\" id=\"").append(inputName).append("\" name=\"").append(inputName).append("\"");
+            formElement.append("    <input class=\"form-input-generated\" type=\"").append(getTypeForHTML(objectType)).append("\" id=\"").append(inputName).append("\" name=\"").append(inputName).append("\"");
          
             if (defaultValue != null) 
             {
@@ -157,35 +157,30 @@ public class Form {
     }
     
 
-    public String getTypeForHTML(Object defaultValue) 
-    {
-        if (defaultValue instanceof List) 
+
+
+    public String getTypeForHTML(Class<?> clazz){
+        String className = clazz.getSimpleName();
+
+        if(className.equalsIgnoreCase("date"))
         {
-            List<?> defaultList = (List<?>) defaultValue;
-            if (!defaultList.isEmpty()) 
-            {
-                Object firstElement = defaultList.get(0);
-                if (firstElement instanceof String || firstElement instanceof Number) 
-                {
-                    return "select";
-                }
-            }
+            return "date";
         }
-         else if (defaultValue instanceof Boolean) 
+        else if (className.equalsIgnoreCase("Timestamp")) 
         {
-            return "select";
-        } 
-        else if (defaultValue instanceof Number) 
+            return "datetime" ;
+        }
+        else if (className.equalsIgnoreCase("Double") ||
+                    className.equalsIgnoreCase("Integer")||
+                    className.equalsIgnoreCase("int") ||
+                    className.equalsIgnoreCase("float")
+                )
         {
             return "number";
         }
-        else if (defaultValue instanceof java.util.Date){
-
-            return "date";
-
+        else 
+        {
+            return "text" ;
         }
-
-        // Par défaut, retourne "text" pour les autres types non spécifiés
-        return "text";
     }
 }
