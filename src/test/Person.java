@@ -6,11 +6,30 @@ import generic.Generic;
 
 public class Person extends Generic{
     
-    String name = "Dylan" ;
+    String name ;
     int age ;
     Date dateDeNaissance;
     boolean isDispo =false ;
+    Physic physic ;
 
+
+    public Person(String name,Physic physic) {
+        this.name = name;
+        this.physic = physic;
+    }
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public Person(Date dateDeNaissance) {
+        this.dateDeNaissance = dateDeNaissance;
+    }
+
+    public Person(int age) {
+        this.age = age;
+    }
 
     public Person(String name, int age, Date dateDeNaissance) {
      
@@ -45,6 +64,10 @@ public class Person extends Generic{
     }
     public void setDateDeNaissance(Date dateDeNaissance) {
         this.dateDeNaissance = dateDeNaissance;
+    }
+
+    public Object getPhysic() {
+        return null;
     }
 
 

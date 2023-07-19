@@ -2,10 +2,12 @@ package generic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import generic.jsp.Form;
 import generic.util.GenericComparator;
 import generic.util.Reflect;
+import generic.util.SimpleGenericComparator;
 
 public class Generic extends Reflect{
     
@@ -80,7 +82,11 @@ public class Generic extends Reflect{
 
     public static void sort(Object [] object , String [] defaultReference)
     {
-        Arrays.sort(object, new GenericComparator(object[0], defaultReference));
+        Arrays.sort(object, new SimpleGenericComparator(object[0], defaultReference));
+    }
+
+    public static void sort(Object [] object , String [] defaultReference ,HashMap<String,String[]> deepFields ) {
+        
     }
 
 
