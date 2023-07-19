@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import generic.jsp.Form;
-import generic.util.Reflect;
-import generic.util.genericComparator.DeepField;
 import generic.util.genericComparator.GenericComparator;
 import generic.util.genericComparator.SimpleGenericComparator;
+import generic.util.reflect.DeepField;
+import generic.util.reflect.Reflect;
 
 public class Generic extends Reflect{
     

@@ -1,10 +1,8 @@
-package generic.util;
+package generic.util.reflect;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-
-import generic.util.genericComparator.DeepField;
 
 public class Reflect {
     

@@ -1,4 +1,4 @@
-package generic.util.genericComparator;
+package generic.util.reflect;
 
 public class DeepField 
 {

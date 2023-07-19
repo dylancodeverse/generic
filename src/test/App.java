@@ -2,7 +2,7 @@ package test;
 
 import java.util.HashMap;
 
-import generic.util.genericComparator.DeepField;
+import generic.util.reflect.DeepField;
 
 public class App {
     public static void main(String[] args) throws Exception {

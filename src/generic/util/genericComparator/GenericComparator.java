@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 
-import generic.util.Reflect;
+import generic.util.reflect.DeepField;
+import generic.util.reflect.Reflect;
 
 public class GenericComparator implements Comparator<Object>
 {
