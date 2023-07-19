@@ -9,6 +9,7 @@ public class Person extends Generic{
     String name = "Dylan" ;
     int age ;
     Date dateDeNaissance;
+    boolean isDispo =false ;
 
 
     public Person(String name, int age, Date dateDeNaissance) {
