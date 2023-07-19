@@ -78,7 +78,7 @@ public class Generic extends Reflect{
 
     }
 
-    public void sort(Object [] object , String [] defaultReference)
+    public static void sort(Object [] object , String [] defaultReference)
     {
         Arrays.sort(object, new GenericComparator(object[0], defaultReference));
     }
