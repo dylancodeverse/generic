@@ -1,8 +1,10 @@
 package generic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import generic.jsp.Form;
+import generic.util.GenericComparator;
 import generic.util.Reflect;
 
 public class Generic extends Reflect{
@@ -75,6 +77,13 @@ public class Generic extends Reflect{
         return formGeneric.getHTMLForm(getCssForm(), form, formElements) ;
 
     }
+
+    public void sort(Object [] object , String [] defaultReference)
+    {
+        Arrays.sort(object, new GenericComparator(object[0], defaultReference));
+    }
+
+
 
     // 
     private String [] getIgnore (String ... ignore)
