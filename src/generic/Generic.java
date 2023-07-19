@@ -3,6 +3,7 @@ package generic;
 import java.util.ArrayList;
 
 import generic.jsp.Form;
+import generic.util.Reflect;
 
 public class Generic extends Reflect{
     
