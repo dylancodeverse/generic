@@ -81,11 +81,11 @@ public class Form {
     
     
 
-    public String getForm(String action, String btnValue) 
+    public String getForm(String action, String method, String btnValue) 
     {
         return 
             "<div class=\"form-container-generated\">\n" +
-            "    <form action=\"" + action + "\" method=\"post\">\n" +
+            "    <form action=\"" + action + "\" method=\"" + method + "\">\n" +
             "\n" +
             "        <!-- Ajoutez ici les éléments de votre formulaire -->\n" +
             "\n" +
@@ -93,7 +93,7 @@ public class Form {
             "    </form>\n" +
             "</div>";
     }
-
+    
 
     public String getCSS() 
     {
