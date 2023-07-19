@@ -86,11 +86,17 @@ public class Reflect {
 
 
     public static int compare(Object o1, Object o2){
-        if (o1 instanceof String && o2 instanceof String) {
+        if (o1 instanceof String && o2 instanceof String) 
+        {
             return ((String)o1).compareTo(((String)o2)) ;
         }
-        else if (o1 instanceof Number && o2 instanceof Number) {
+        else if (o1 instanceof Number && o2 instanceof Number) 
+        {
             return Double.compare(Double.valueOf(o1.toString()), Double.valueOf(o2.toString()));
+        }
+        else if (o1 instanceof java.util.Date && o2 instanceof java.util.Date) 
+        {
+            return ((java.util.Date)o1).compareTo((java.util.Date)o2);
         }
         else 
         {
