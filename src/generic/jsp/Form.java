@@ -179,6 +179,11 @@ public class Form {
         {
             return "number";
         }
+        else if (defaultValue instanceof java.util.Date){
+
+            return "date";
+
+        }
 
         // Par défaut, retourne "text" pour les autres types non spécifiés
         return "text";
