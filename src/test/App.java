@@ -1,5 +1,8 @@
 package test;
 
+import java.util.HashMap;
+
+import generic.util.genericComparator.DeepField;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -26,9 +29,9 @@ public class App {
         };
 
 
-        // map.put("physic", )
-        // Triez le tableau de personnes par âge en utilisant un Comparator
-        // Person.sort(pss, new String[]{"physic"},);
+        HashMap <String ,DeepField > map = new HashMap<String ,DeepField>();
+        map.put("physic", new DeepField(new String[]{"physic","weight"}));
+        Person.sort(pss, new String[]{"physic"},map);
 
     
     }

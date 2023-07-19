@@ -121,16 +121,16 @@ public class Reflect {
 
     public static Object getValue(Object o , DeepField deepField ) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException
     {
-
+        
         Field o1Field = o.getClass().getDeclaredField(deepField.getField());
         o1Field.setAccessible(true);
-
-        if (deepField.getDeepField()!=null) 
+        Object value = o1Field.get(o);
+        if (deepField.getDeepField()== null) 
         {
-            return getValue(o1Field.get(o), deepField.getDeepField()) ;
+            return value ;
         }
-
-        return o1Field.get(o);
+        
+        return getValue(o1Field.get(o), deepField.getDeepField()) ;
 
     }
 

@@ -12,7 +12,13 @@ public class DeepField
         this.field = field;
     }
 
-    public DeepField (String[] fields ,int begin)
+    public DeepField (String[] fields )
+    {
+        this(fields ,0);
+
+    }
+
+    private DeepField (String[] fields ,int begin)
     {
 
         this(fields[begin]) ;
