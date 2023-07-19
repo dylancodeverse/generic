@@ -85,8 +85,9 @@ public class Generic extends Reflect{
         Arrays.sort(object, new SimpleGenericComparator(object[0], defaultReference));
     }
 
-    public static void sort(Object [] object , String [] defaultReference ,HashMap<String,String[]> deepFields ) {
-        
+    public static void sort(Object [] object , String [] defaultReference ,HashMap<String,String[]> deepFields ) 
+    {
+        Arrays.sort(object ,new GenericComparator(object[0], defaultReference, deepFields));
     }
 
 
