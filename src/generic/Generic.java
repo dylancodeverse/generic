@@ -6,9 +6,9 @@ import java.util.HashMap;
 
 import generic.jsp.Form;
 import generic.util.Reflect;
-import generic.util.SimpleGenericComparator;
 import generic.util.genericComparator.DeepField;
 import generic.util.genericComparator.GenericComparator;
+import generic.util.genericComparator.SimpleGenericComparator;
 
 public class Generic extends Reflect{
     

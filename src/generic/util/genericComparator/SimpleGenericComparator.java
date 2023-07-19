@@ -1,6 +1,8 @@
-package generic.util;
+package generic.util.genericComparator;
 import java.util.Arrays;
 import java.util.Comparator;
+
+import generic.util.Reflect;
 
 public class SimpleGenericComparator implements Comparator<Object>
 {
