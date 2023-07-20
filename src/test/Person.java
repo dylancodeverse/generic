@@ -14,6 +14,9 @@ public class Person extends Generic<Person>{
     Physic physic ;
 
 
+    public Person() {
+    }
+
     public Person(String name,Physic physic) {
         this.name = name;
         this.physic = physic;
@@ -34,18 +37,12 @@ public class Person extends Generic<Person>{
 
     public Person(String name, int age, Date dateDeNaissance) {
      
-        super();
         this.name = name;
         this.age = age;
         this.dateDeNaissance = dateDeNaissance;
 
     }
 
-    public Person(){
-
-        super();
-
-    }
     
 
     public String getName() {
