@@ -2,7 +2,7 @@ package generic.sort;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import generic.util.reflect.Reflect;
+import generic.util.Reflect;
 
 public class SimpleGenericComparator implements Comparator<Object>
 {

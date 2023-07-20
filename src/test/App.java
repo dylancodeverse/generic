@@ -2,7 +2,7 @@ package test;
 
 import java.util.HashMap;
 
-import generic.util.reflect.DeepField;
+import generic.util.DeepField;
 
 public class App {
     public static void main(String[] args) throws Exception {

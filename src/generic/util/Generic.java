@@ -9,8 +9,6 @@ import generic.jsp.Form;
 import generic.maths.Math;
 import generic.sort.GenericComparator;
 import generic.sort.SimpleGenericComparator;
-import generic.util.reflect.DeepField;
-import generic.util.reflect.Reflect;
 
 public class Generic <T> extends Reflect{
     

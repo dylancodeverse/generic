@@ -3,7 +3,7 @@ package generic.maths;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
-import generic.util.reflect.Reflect;
+import generic.util.Reflect;
 
 public class Math <T> {
     
