@@ -4,14 +4,14 @@ import generic.util.Generic;
 
 public class Prix extends Generic<Prix> {
     String id;
-    int prixCoca;
-    int prixChoco;
+    Double prixCoca;
+    Double prixChoco;
 
     public Prix()
     {
         super();
     }
-    public Prix(int prixCoca, int prixChoco) 
+    public Prix(Double prixCoca, Double prixChoco) 
     {
         super();
 

@@ -36,12 +36,14 @@ public class App {
 
     
         Prix[] prixList = new Prix[] {
-            new Prix(10, 15),
-            new Prix(5, 8),
-            new Prix(12, 20)
+            new Prix(10., 15.),
+            new Prix(5., 8.),
+            new Prix(12., 20.)
         };
 
         Prix p = new Prix().sum(prixList, new String[]{"prixCoca","prixChoco"});
+
+        Prix p1= new Prix().average(prixList, new String[]{"prixCoca","prixChoco"});
 
     }
 

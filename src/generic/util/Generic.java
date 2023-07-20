@@ -94,6 +94,21 @@ public class Generic <T> extends Reflect{
 
     }
 
+    public T average (T[] array ,String [] fieldsReferences) throws InstantiationException , IllegalAccessException , InvocationTargetException , NoSuchMethodException , SecurityException , IllegalArgumentException , NoSuchFieldException 
+    {
+        try 
+        {
+            return new Math<T>().average(array, fieldsReferences);
+        } 
+        catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException
+                | SecurityException | IllegalArgumentException | NoSuchFieldException e) 
+        {
+            throw e;
+        }
+
+
+    }
+
     
 
 

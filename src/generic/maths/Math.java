@@ -104,6 +104,9 @@ public class Math <T> {
 
         for (int i = 0; i < fields.length; i++) 
         {
+            targets[i] = response.getClass().getDeclaredField(fields[i]);  
+            targets[i].setAccessible(true) ;
+
             targetClass[i] = targets[i].getType() ;
 
             targets[i] = response.getClass().getDeclaredField(fields[i]);  
@@ -114,7 +117,9 @@ public class Math <T> {
 
         for (int i = 0; i < targets.length; i++) 
         {
-            targets[i].set(response, targets[i].get(response) );
+            Double d= Double.valueOf(targets[i].get(response).toString());
+            d = d/Double.valueOf(list.length);
+            targets[i].set(response, NumberOperation.castNumber(d.toString(), targetClass[i]) );
         }
 
         return response;
