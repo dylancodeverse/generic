@@ -29,7 +29,13 @@ public class GenericComparator implements Comparator<Object>
         // Si tous les champs de defaultFieldsReference sont valides, les assigner à l'attribut de classe
         this.defaultFieldsReference = defaultFieldsReference;
 
+        // complete deepfields ( the developper doesn t have to specify all the deepfield for each defaultFieldsReference)
+        for (int i = 0; i < defaultFieldsReference.length; i++) 
+        {
+            deepFields.putIfAbsent(defaultFieldsReference[i], new DeepField(defaultFieldsReference[i]));
+        }
         fields = deepFields ;
+        
     }
 
     

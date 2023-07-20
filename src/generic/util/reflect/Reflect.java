@@ -88,7 +88,7 @@ public class Reflect {
     public static int compare(Object o1, Object o2){
         if (o1 instanceof String && o2 instanceof String) 
         {
-            return ((String)o1).compareTo(((String)o2)) ;
+            return ((String)o1).compareToIgnoreCase(((String)o2)) ;
         }
         else if (o1 instanceof Number && o2 instanceof Number) 
         {

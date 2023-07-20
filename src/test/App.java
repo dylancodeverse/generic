@@ -24,14 +24,15 @@ public class App {
 
         Person[] pss = new Person[]{
             new Person("Alice", new Physic(12)),
-            new Person("Bob", new Physic(10)),
-            new Person("Charlie", new Physic(15))
+            new Person("PBob", new Physic(10)),
+            new Person("Charlie", new Physic(15)),
+            new Person("Patrick",new Physic(10))
         };
 
 
         HashMap <String ,DeepField > map = new HashMap<String ,DeepField>();
         map.put("physic", new DeepField(new String[]{"physic","weight"}));
-        Person.sort(pss, new String[]{"physic"},map);
+        Person.sort(pss, new String[]{"physic","name"},map);
 
     
     }
