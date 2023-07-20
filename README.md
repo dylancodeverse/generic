@@ -131,3 +131,10 @@ case 2 : sort Person by Person.Physic.weight
     map.put("physic", new DeepField(new String[]{"physic","weight"}));
         
     Person.sort(pss, new String[]{"physic"},map);
+
+case 3 : sort by Person.Physic.weight and Name
+           
+    HashMap <String ,DeepField > map = new HashMap<String ,DeepField>();
+            map.put("physic", new DeepField(new String[]{"physic","weight"}));
+
+    Person.sort(pss, new String[]{"physic","name"},map);
