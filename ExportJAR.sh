@@ -5,4 +5,4 @@ javac  -d ./bin --enable-preview --release 19 $(find  ./src -name '*.java')
 
 cd ./bin
 
-jar cvf ../everest-spring.jar *
+jar cvf ../generic.jar *
