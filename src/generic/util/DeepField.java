@@ -1,4 +1,4 @@
-package generic.util.reflect;
+package generic.util;
 
 public class DeepField 
 {

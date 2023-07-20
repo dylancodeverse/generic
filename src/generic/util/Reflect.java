@@ -1,4 +1,4 @@
-package generic.util.reflect;
+package generic.util;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -104,6 +104,13 @@ public class Reflect {
         }
     }
 
+    public static void setValue (Object o , String fieldName ,Object value) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException
+    {
+        Field o1Field = o.getClass().getDeclaredField(fieldName);
+        o1Field.setAccessible(true);
+        o1Field.set(o, value);
+    }
+
     public static Object getValue(Object o , String fieldName) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException
     {
 
@@ -132,5 +139,5 @@ public class Reflect {
         return getValue(o1Field.get(o), deepField.getDeepField()) ;
 
     }
-
+    
 }

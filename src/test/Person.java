@@ -2,9 +2,10 @@ package test;
 
 import java.util.Date;
 
-import generic.Generic;
+import generic.util.Generic;
 
-public class Person extends Generic{
+
+public class Person extends Generic<Person>{
     
     String name ;
     int age ;

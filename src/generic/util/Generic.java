@@ -1,16 +1,16 @@
-package generic;
+package generic.util;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
 import generic.jsp.Form;
-import generic.util.genericComparator.GenericComparator;
-import generic.util.genericComparator.SimpleGenericComparator;
-import generic.util.reflect.DeepField;
-import generic.util.reflect.Reflect;
+import generic.maths.Math;
+import generic.sort.GenericComparator;
+import generic.sort.SimpleGenericComparator;
 
-public class Generic extends Reflect{
+public class Generic <T> extends Reflect{
     
     protected String cssForm ;
     protected String actionForm;
@@ -27,25 +27,7 @@ public class Generic extends Reflect{
     
     }
 
-    private String [] getAttributeName(String... ignore)
-    {
-        ignore= getIgnore(ignore) ;
-        return super.getAttributeName(this, ignore) ;
-    }
-
-
-    private Object [] getAttributeValue(String... ignore)
-    {
-        ignore = getIgnore(ignore);
-        return super.getAttributeValue(this, ignore);
-    }
-
-    private Class<?> [] getAttributeClasses(String... ignore)
-    {
-        ignore=getIgnore(ignore);
-        return super.getAttributeType(this, ignore);
-    }
-
+// FORM  SECTION FOR JSP
 
     public String getFormHTML(String action , String method , String... ignore)
     {
@@ -81,6 +63,8 @@ public class Generic extends Reflect{
 
     }
 
+// SORT SECTION
+
     public static void sort(Object [] object , String [] defaultReference)
     {
         Arrays.sort(object, new SimpleGenericComparator(object[0], defaultReference));
@@ -93,7 +77,63 @@ public class Generic extends Reflect{
 
 
 
-    // 
+// MATH SECTION
+
+    public T sum( T[] array ,String []fieldsReferences) throws InstantiationException , IllegalAccessException , InvocationTargetException , NoSuchMethodException , SecurityException , IllegalArgumentException , NoSuchFieldException 
+    {
+        try 
+        {
+            return new Math<T>().sum(array, fieldsReferences);
+
+        } 
+        catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException
+                | SecurityException | IllegalArgumentException | NoSuchFieldException e) 
+        {
+            throw e;
+        }
+
+    }
+
+    public T average (T[] array ,String [] fieldsReferences) throws InstantiationException , IllegalAccessException , InvocationTargetException , NoSuchMethodException , SecurityException , IllegalArgumentException , NoSuchFieldException 
+    {
+        try 
+        {
+            return new Math<T>().average(array, fieldsReferences);
+        } 
+        catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException
+                | SecurityException | IllegalArgumentException | NoSuchFieldException e) 
+        {
+            throw e;
+        }
+
+
+    }
+
+    
+
+
+
+// ALL PRIVATE FUNCTION
+
+    private String [] getAttributeName(String... ignore)
+    {
+        ignore= getIgnore(ignore) ;
+        return super.getAttributeName(this, ignore) ;
+    }
+
+
+    private Object [] getAttributeValue(String... ignore)
+    {
+        ignore = getIgnore(ignore);
+        return super.getAttributeValue(this, ignore);
+    }
+
+    private Class<?> [] getAttributeClasses(String... ignore)
+    {
+        ignore=getIgnore(ignore);
+        return super.getAttributeType(this, ignore);
+    }
+
     private String [] getIgnore (String ... ignore)
     {
         ArrayList<String> list = new ArrayList<String>();

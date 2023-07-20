@@ -2,7 +2,7 @@ package test;
 
 import java.util.HashMap;
 
-import generic.util.reflect.DeepField;
+import generic.util.DeepField;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -35,6 +35,16 @@ public class App {
         Person.sort(pss, new String[]{"physic","name"},map);
 
     
+        Prix[] prixList = new Prix[] {
+            new Prix(10., 15.),
+            new Prix(5., 8.),
+            new Prix(12., 20.)
+        };
+
+        Prix p = new Prix().sum(prixList, new String[]{"prixCoca","prixChoco"});
+
+        Prix p1= new Prix().average(prixList, new String[]{"prixCoca","prixChoco"});
+
     }
 
 
