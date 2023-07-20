@@ -164,4 +164,17 @@ case 3 : sort by Person.Physic.weight and Name
         }
     }
 
+Initialisation:
+
+    Prix[] prixList = new Prix[] {
+        new Prix(10., 15.),
+        new Prix(5., 8.),
+        new Prix(12., 20.)
+    };
+
+Test sum:
+
+    Prix result = new Prix().sum(prixList, new String[]{"prixCoca","prixChoco"});
+
+> sum prixCoca = result.prixcoca , sum prixChoco = result.prixChoco
 
