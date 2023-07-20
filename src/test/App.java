@@ -35,6 +35,14 @@ public class App {
         Person.sort(pss, new String[]{"physic","name"},map);
 
     
+        Prix[] prixList = new Prix[] {
+            new Prix(10, 15),
+            new Prix(5, 8),
+            new Prix(12, 20)
+        };
+
+        Prix p = new Prix().sum(prixList, new String[]{"prixCoca"});
+
     }
 
 

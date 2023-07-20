@@ -12,8 +12,17 @@ public class Math <T> {
     {
         try 
         {
-
-            T response = ((T) list[0].getClass().getConstructor().newInstance());
+            T response ;
+            try 
+            {
+                
+                 response = ((T) list[0].getClass().getConstructor().newInstance());
+            } 
+            catch (NoSuchMethodException e2) 
+            {
+                throw new NoSuchMethodException("You must have a constructor with no args if you want to use Math.sum ");
+            }
+    
 
             for (int i = 0; i < fields.length; i++) 
             {
@@ -32,18 +41,14 @@ public class Math <T> {
 
                 }
                 
-                target.set(response, targetClass.getConstructor(String.class).newInstance(initFieldValue.toString()));
+                target.set(response, Reflect.castNumber(initFieldValue.toString(), targetClass));
 
             }
 
             return response;
         } 
-        catch (NoSuchMethodException e2) 
-        {
-            throw new IllegalAccessException("You must have a constructor with no args if you want to use Math.sum ");
-        }
         catch (InstantiationException | IllegalAccessException | InvocationTargetException | IllegalArgumentException
-                    | SecurityException |NoSuchFieldException e) 
+                    | SecurityException |NoSuchFieldException | NoSuchMethodException e) 
         {
             throw e ;
         }         
