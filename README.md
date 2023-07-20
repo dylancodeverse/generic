@@ -178,3 +178,7 @@ Test sum:
 
 > sum prixCoca = result.prixcoca , sum prixChoco = result.prixChoco
 
+Test average:
+
+    Prix p1= new Prix().average(prixList, new String[]{"prixCoca","prixChoco"});
+
