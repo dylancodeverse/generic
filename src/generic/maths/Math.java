@@ -3,6 +3,7 @@ package generic.maths;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
+import generic.util.NumberOperation;
 import generic.util.Reflect;
 
 public class Math <T> {
@@ -41,7 +42,7 @@ public class Math <T> {
 
                 }
                 
-                target.set(response, Reflect.castNumber(initFieldValue.toString(), targetClass));
+                target.set(response, NumberOperation.castNumber(initFieldValue.toString(), targetClass));
 
             }
 
@@ -53,4 +54,72 @@ public class Math <T> {
             throw e ;
         }         
     }
+
+    private T sumForAverage (T response , Field [] targets , Class<?> [] targetClasses,T [] list , String[] fields) throws InstantiationException , IllegalAccessException , InvocationTargetException , NoSuchMethodException , SecurityException , IllegalArgumentException ,NoSuchFieldException
+    {
+        try 
+        {
+            for (int i = 0; i < fields.length; i++) 
+            {
+                
+                Class<?> targetClass = targets[i].getType() ;
+
+                Double initFieldValue = 0. ;
+
+                for (int j = 0; j < list.length; j++) 
+                {
+                    Object oneListValue = Reflect.getValue(list[j], fields[i]) ;
+                    initFieldValue = initFieldValue + Double.valueOf(oneListValue.toString());
+
+                }
+                
+                targets[i].set(response, NumberOperation.castNumber(initFieldValue.toString(), targetClass));
+
+            }
+
+            return response;
+        } 
+        catch ( IllegalAccessException  | IllegalArgumentException
+                    | SecurityException |NoSuchFieldException  e) 
+        {
+            throw e ;
+        }         
+    }
+ 
+    @SuppressWarnings("unchecked")
+    public T average (T[] list ,String [] fields)throws InstantiationException , IllegalAccessException , InvocationTargetException , NoSuchMethodException , SecurityException , IllegalArgumentException ,NoSuchFieldException
+    {
+        T response ;
+        try 
+        {
+             response = ((T) list[0].getClass().getConstructor().newInstance());
+        } 
+        catch (NoSuchMethodException e2) 
+        {
+            throw new NoSuchMethodException("You must have a constructor with no args if you want to use Math.sum ");
+        }
+
+        Field [] targets = new Field [fields.length];
+        Class<?> [] targetClass = new Class<?>[targets.length] ;
+
+        for (int i = 0; i < fields.length; i++) 
+        {
+            targetClass[i] = targets[i].getType() ;
+
+            targets[i] = response.getClass().getDeclaredField(fields[i]);  
+            targets[i].setAccessible(true) ;
+        }
+
+        response = sumForAverage(response, targets, targetClass, list, fields); 
+
+        for (int i = 0; i < targets.length; i++) 
+        {
+            targets[i].set(response, targets[i].get(response) );
+        }
+
+        return response;
+
+
+    }
+
 }

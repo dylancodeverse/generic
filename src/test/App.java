@@ -41,7 +41,7 @@ public class App {
             new Prix(12, 20)
         };
 
-        Prix p = new Prix().sum(prixList, new String[]{"prixCoca"});
+        Prix p = new Prix().sum(prixList, new String[]{"prixCoca","prixChoco"});
 
     }
 

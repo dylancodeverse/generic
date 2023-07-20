@@ -104,6 +104,13 @@ public class Reflect {
         }
     }
 
+    public static void setValue (Object o , String fieldName ,Object value) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException
+    {
+        Field o1Field = o.getClass().getDeclaredField(fieldName);
+        o1Field.setAccessible(true);
+        o1Field.set(o, value);
+    }
+
     public static Object getValue(Object o , String fieldName) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException
     {
 
@@ -131,60 +138,6 @@ public class Reflect {
         
         return getValue(o1Field.get(o), deepField.getDeepField()) ;
 
-    }
-
-    public static Object castNumber(String o, Class<?> clazz) {
-        if (clazz.getSimpleName().equals("int")) 
-        {
-            return Integer.parseInt(o);
-        }
-        else if (clazz.getSimpleName().equals("double")) 
-        {
-            return Double.parseDouble(o);
-        } 
-        else if (clazz.getSimpleName().equals("long")) 
-        {
-            return Long.parseLong(o);
-        } 
-        else if (clazz.getSimpleName().equals("float")) 
-        {
-            return Float.parseFloat(o);
-        } 
-        else if (clazz.getSimpleName().equals("short")) 
-        {
-            return Short.parseShort(o);
-        } 
-        else if (clazz.getSimpleName().equals("byte")) 
-        {
-            return Byte.parseByte(o);
-        } 
-        else if (clazz.getSimpleName().equals("Integer") )
-        {
-            return Integer.valueOf(o);
-        }
-        else if (clazz.getSimpleName().equals("Double")) 
-        {
-            return Double.valueOf(o);
-        }
-         else if (clazz.getSimpleName().equals("Long")) 
-        {
-            return Long.valueOf(o);
-        } 
-        else if (clazz.getSimpleName().equals("Float")) 
-        {
-            return Float.valueOf(o);
-        } 
-        else if (clazz.getSimpleName().equals("Short")) 
-        {
-            return Short.valueOf(o);
-        } else if (clazz.getSimpleName().equals("Byte")) 
-        {
-            return Byte.valueOf(o);
-        }
-        else 
-        {
-            throw new IllegalArgumentException("Invalid class for the cast to a number");
-        }
     }
     
 }
