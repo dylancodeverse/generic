@@ -1,0 +1,2 @@
+A must:
+sudo chmod +x ExportJAR.sh
