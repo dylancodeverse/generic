@@ -22,7 +22,7 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 Your object should extends generic.Generic
 
-> Don't forget to call super()
+
 
 Here's an example :
 
@@ -40,13 +40,11 @@ Here's an example :
 
 
     public Person(String name,Physic physic) {
-        super();
         this.name = name;
         this.physic = physic;
     }
 
     public Person(String name, int age) {
-        super();
         this.name = name;
         this.age = age;
     }
@@ -54,7 +52,6 @@ Here's an example :
 
     public Person(String name, int age, Date dateDeNaissance) {
      
-        super();
         this.name = name;
         this.age = age;
         this.dateDeNaissance = dateDeNaissance;
@@ -153,7 +150,6 @@ case 3 : sort by Person.Physic.weight and Name
 
         public Prix()
         {
-            super();
         }
         public Prix(Double prixCoca, Double prixChoco) 
         {
