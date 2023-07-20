@@ -1,21 +1,39 @@
 package generic.maths;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+
+import generic.util.reflect.Reflect;
 
 public class Math <T> {
     
     @SuppressWarnings("unchecked")
-    public T sum (T [] list , String[] fields ,Class <?> precision ) throws InstantiationException , IllegalAccessException , InvocationTargetException , NoSuchMethodException , SecurityException , IllegalArgumentException ,NoSuchFieldException
-
+    public T sum (T [] list , String[] fields) throws InstantiationException , IllegalAccessException , InvocationTargetException , NoSuchMethodException , SecurityException , IllegalArgumentException ,NoSuchFieldException
     {
         try 
         {
 
-            T response = ((T)list[0].getClass().getConstructor().newInstance());
-            
+            T response = ((T) list[0].getClass().getConstructor().newInstance());
+
             for (int i = 0; i < fields.length; i++) 
             {
-                response.getClass().getDeclaredField(fields[i]).setAccessible(true);  
+                
+                Field target = response.getClass().getDeclaredField(fields[i]);  
+                target.setAccessible(true) ;
+
+                Class<?> targetClass = target.getType() ;
+
+                Double initFieldValue = 0. ;
+
+                for (int j = 0; j < list.length; j++) 
+                {
+                    Object oneListValue = Reflect.getValue(list[j], fields[i]) ;
+                    initFieldValue = initFieldValue + Double.valueOf(oneListValue.toString());
+
+                }
+                
+                target.set(response, targetClass.getConstructor(String.class).newInstance(initFieldValue.toString()));
+
             }
 
             return response;
