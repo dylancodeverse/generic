@@ -12,10 +12,10 @@ import generic.sort.SimpleGenericComparator;
 
 public class Generic <T> extends Reflect{
     
-    protected String cssForm ;
+    protected String cssForm =new Form().getCSS();
     protected String actionForm;
     protected String methodForm;
-    protected String btnValueForm ;
+    protected String btnValueForm ="Envoyer";
 
 
     public Generic()
