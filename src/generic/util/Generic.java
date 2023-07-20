@@ -18,14 +18,6 @@ public class Generic <T> extends Reflect{
     protected String btnValueForm ="Envoyer";
 
 
-    public Generic()
-    {
-    
-        Form form = new Form() ;
-        cssForm = form.getCSS();
-        btnValueForm ="Envoyer";
-    
-    }
 
 // FORM  SECTION FOR JSP
 
