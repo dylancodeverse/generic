@@ -30,7 +30,7 @@ Here's an example :
 
     import generic.Generic;
 
-    public class Person extends Generic{
+    public class Person extends Generic<Person>{
     
     String name ;
     int age ;
@@ -102,7 +102,7 @@ case 5
 
 ## Generic sort
 
-> Always extends Generic
+> Always extends Generic<T>
 
 case 1 : Similar to `ORDER BY age, name` of SQL
 
@@ -138,3 +138,7 @@ case 3 : sort by Person.Physic.weight and Name
             map.put("physic", new DeepField(new String[]{"physic","weight"}));
 
     Person.sort(pss, new String[]{"physic","name"},map);
+
+
+## SUM and AVERAGE
+
