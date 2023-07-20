@@ -1,4 +1,4 @@
-package generic;
+package generic.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -7,8 +7,8 @@ import java.util.HashMap;
 
 import generic.jsp.Form;
 import generic.maths.Math;
-import generic.util.genericComparator.GenericComparator;
-import generic.util.genericComparator.SimpleGenericComparator;
+import generic.sort.GenericComparator;
+import generic.sort.SimpleGenericComparator;
 import generic.util.reflect.DeepField;
 import generic.util.reflect.Reflect;
 

@@ -1,6 +1,6 @@
 package test;
 
-import generic.Generic;
+import generic.util.Generic;
 
 public class Prix extends Generic<Prix> {
     String id;

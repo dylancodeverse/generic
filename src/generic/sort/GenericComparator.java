@@ -1,16 +1,19 @@
-package generic.util.genericComparator;
+package generic.sort;
+
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 
+import generic.util.reflect.DeepField;
 import generic.util.reflect.Reflect;
 
-public class SimpleGenericComparator implements Comparator<Object>
+public class GenericComparator implements Comparator<Object>
 {
 
     String [] defaultFieldsReference ;
+    HashMap <String ,DeepField > fields ;
 
-
-    public SimpleGenericComparator(Object objectInstance, String[] defaultFieldsReference ) throws IllegalArgumentException 
+    public GenericComparator(Object objectInstance, String[] defaultFieldsReference , HashMap<String, DeepField> deepFields) throws IllegalArgumentException 
     {
         String[] fieldsName = Reflect.getAttributeName(objectInstance);
 
@@ -26,6 +29,13 @@ public class SimpleGenericComparator implements Comparator<Object>
         // Si tous les champs de defaultFieldsReference sont valides, les assigner à l'attribut de classe
         this.defaultFieldsReference = defaultFieldsReference;
 
+        // complete deepfields ( the developper doesn t have to specify all the deepfield for each defaultFieldsReference)
+        for (int i = 0; i < defaultFieldsReference.length; i++) 
+        {
+            deepFields.putIfAbsent(defaultFieldsReference[i], new DeepField(defaultFieldsReference[i]));
+        }
+        fields = deepFields ;
+        
     }
 
     
@@ -37,8 +47,8 @@ public class SimpleGenericComparator implements Comparator<Object>
         {
             try 
             {
-                Object o1Value = Reflect.getValue(o1, defaultFieldsReference[i] ) ;
-                Object o2Value = Reflect.getValue(o2, defaultFieldsReference[i]);
+                Object o1Value = Reflect.getValue(o1, fields.get(defaultFieldsReference[i])) ;
+                Object o2Value = Reflect.getValue(o2, fields.get(defaultFieldsReference[i])) ;
 
                 response = Reflect.compare(o1Value, o2Value) ;
                 if (response!=0) 
@@ -53,11 +63,14 @@ public class SimpleGenericComparator implements Comparator<Object>
  
         }
         return response ;
+ 
     }
 
     public void setDefaultFieldsReference(String [] defaultFieldsReference) 
     {
+
+
         this.defaultFieldsReference = defaultFieldsReference;
     }
-
+    
 }
