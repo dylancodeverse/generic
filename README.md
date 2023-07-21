@@ -18,6 +18,13 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
 
 
+## Key Features
+
+- `Form Generation Library:` A generic library that allows developers to create forms for any object in their Java applications. This library streamlines the process of generating user interfaces and data entry forms.
+
+- `Sorting Library`: A versatile sorting library that can be applied to any object type. It provides various sorting algorithms to efficiently organize data collections.
+
+
 ## Generate FORM
 
 Your object should extends generic.Generic
