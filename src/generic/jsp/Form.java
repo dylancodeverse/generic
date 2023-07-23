@@ -45,7 +45,7 @@ public class Form {
         if (defaultValue instanceof List) 
         {
             List<?> defaultList = (List<?>) defaultValue;
-            formElement.append("    <select class=\"form-input-generated\" id=\"").append(inputName).append("\" name=\"").append(inputName).append("\" required>\n");
+            formElement.append("    <select class=\"form-input-generated\" id=\"").append(inputName.replaceAll(" ", "")).append("\" name=\"").append(inputName.replaceAll(" ", "")).append("\" required>\n");
             
             for (Object optionValue : defaultList) 
             {
@@ -57,14 +57,14 @@ public class Form {
         else if (defaultValue instanceof Boolean) 
         {
 
-            formElement.append("    <select class=\"form-input-generated\" id=\"").append(inputName).append("\" name=\"").append(inputName).append("\" required>\n");
+            formElement.append("    <select class=\"form-input-generated\" id=\"").append(inputName.replaceAll(" ", "")).append("\" name=\"").append(inputName.replaceAll(" ", "")).append("\" required>\n");
             formElement.append("        <option value=\"true\"").append((defaultValue != null && defaultValue.equals(true)) ? " selected" : "").append(">True</option>\n");
             formElement.append("        <option value=\"false\"").append((defaultValue != null && defaultValue.equals(false)) ? " selected" : "").append(">False</option>\n");
             formElement.append("    </select>\n");
 
         } else 
         {
-            formElement.append("    <input class=\"form-input-generated\" type=\"").append(getTypeForHTML(objectType)).append("\" id=\"").append(inputName).append("\" name=\"").append(inputName).append("\"");
+            formElement.append("    <input class=\"form-input-generated\" type=\"").append(getTypeForHTML(objectType)).append("\" id=\"").append(inputName.replaceAll(" ", "")).append("\" name=\"").append(inputName.replaceAll(" ", "")).append("\"");
          
             if (defaultValue != null) 
             {
