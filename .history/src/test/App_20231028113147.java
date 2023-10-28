@@ -8,7 +8,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // System.out.println(new Person().getFormHTMLSpecified("treatment", "get" , 
-        // new String[] { "Nom","Age" , "Is free" } ,"birthday" ));
+        // new String[] { "Nom","Age" , "Is free" } ,"" ));
 
         Person[] ps = new Person[]{
             new Person("Cocou", 19),

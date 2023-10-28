@@ -7,8 +7,8 @@ import generic.util.DeepField;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        // System.out.println(new Person().getFormHTMLSpecified("treatment", "get" , 
-        // new String[] { "Nom","Age" , "Is free" } ,"birthday" ));
+        // System.out.println(new Person().getFormHTMLSpecified("traitement", "get" , 
+        // new String[] { "Nom","Age" , "Est disponible" } ,"dateDeNaissance" ));
 
         Person[] ps = new Person[]{
             new Person("Cocou", 19),
