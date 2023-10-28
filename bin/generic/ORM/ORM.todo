@@ -115,17 +115,6 @@
           "done": false,
           "start": 1698483243576
         }
-      },
-      {
-        "key": 1698483306275,
-        "children": [],
-        "todo": {
-          "content": "Test phase",
-          "id": 1698483306275,
-          "level": "default",
-          "done": false,
-          "start": 1698483306275
-        }
       }
     ],
     "expandKeys": [
@@ -143,6 +132,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1698483323155"
+    "version": "1698483652811"
   }
 }
