@@ -21,12 +21,12 @@ public class Generic<T> extends Reflect {
 
     public String getFormHTML(String action, String method, String... ignore) {
         String[] fieldsName = getAttributeName(ignore);
-        Object[] fieldsValue = getAttributeValue(ignore);
+        Object[] fildsValue = getAttributeValue(ignore);
         Class<?>[] clazz = getAttributeClasses(ignore);
 
         Form formGeneric = new Form();
         String form = formGeneric.getForm(action, method, getBtnValueForm());
-        String formElements = formGeneric.getFormElements(fieldsName, fieldsName, clazz, fieldsValue);
+        String formElements = formGeneric.getFormElements(fieldsName, fieldsName, clazz, fildsValue);
 
         return formGeneric.getHTMLForm(getCssForm(), form, formElements);
     }
@@ -35,12 +35,12 @@ public class Generic<T> extends Reflect {
         if (fieldsName == null) {
             fieldsName = getAttributeName(ignore);
         }
-        Object[] fieldsValue = getAttributeValue(ignore);
+        Object[] fildsValue = getAttributeValue(ignore);
         Class<?>[] clazz = getAttributeClasses(ignore);
 
         Form formGeneric = new Form();
         String form = formGeneric.getForm(action, method, getBtnValueForm());
-        String formElements = formGeneric.getFormElements(fieldsName, fieldsName, clazz, fieldsValue);
+        String formElements = formGeneric.getFormElements(fieldsName, fieldsName, clazz, fildsValue);
 
         return formGeneric.getHTMLForm(getCssForm(), form, formElements);
 
@@ -114,7 +114,7 @@ public class Generic<T> extends Reflect {
 
     }
 
-    // setters and getters
+    // settes and getters
 
     public String getCssForm() {
         return cssForm;
