@@ -9,7 +9,99 @@
             "children": [
               {
                 "key": 1698483043578,
-                "children": [],
+                "children": [
+                  {
+                    "key": 1698483731457,
+                    "children": [
+                      {
+                        "key": 1698483786467,
+                        "children": [],
+                        "todo": {
+                          "content": "Attribute",
+                          "id": 1698483786467,
+                          "level": "default",
+                          "done": false,
+                          "start": 1698483786467
+                        }
+                      },
+                      {
+                        "key": 1698483812339,
+                        "children": [],
+                        "todo": {
+                          "content": "Constructor",
+                          "id": 1698483812339,
+                          "level": "default",
+                          "done": false,
+                          "start": 1698483812339
+                        }
+                      },
+                      {
+                        "key": 1698483821441,
+                        "children": [],
+                        "todo": {
+                          "content": "Connect(): sql.connection",
+                          "id": 1698483821441,
+                          "level": "default",
+                          "done": false,
+                          "start": 1698483821441
+                        }
+                      }
+                    ],
+                    "todo": {
+                      "content": "SQLConnectionInterface",
+                      "id": 1698483731457,
+                      "level": "default",
+                      "done": false,
+                      "start": 1698483731457
+                    }
+                  },
+                  {
+                    "key": 1698483758765,
+                    "children": [
+                      {
+                        "key": 1698483902596,
+                        "children": [],
+                        "todo": {
+                          "content": "implementation",
+                          "id": 1698483902596,
+                          "level": "default",
+                          "done": false,
+                          "start": 1698483902596
+                        }
+                      }
+                    ],
+                    "todo": {
+                      "content": "POSTGRESQLConnection",
+                      "id": 1698483758765,
+                      "level": "default",
+                      "done": false,
+                      "start": 1698483758765
+                    }
+                  },
+                  {
+                    "key": 1698483772918,
+                    "children": [
+                      {
+                        "key": 1698483981779,
+                        "children": [],
+                        "todo": {
+                          "content": "implementation",
+                          "id": 1698483981779,
+                          "level": "default",
+                          "done": false,
+                          "start": 1698483981779
+                        }
+                      }
+                    ],
+                    "todo": {
+                      "content": "MYSQLConnection",
+                      "id": 1698483772918,
+                      "level": "default",
+                      "done": false,
+                      "start": 1698483772918
+                    }
+                  }
+                ],
                 "todo": {
                   "content": "Connection conception",
                   "id": 1698483043578,
@@ -90,35 +182,26 @@
           "done": false,
           "start": 1698482947346,
           "focus": false,
-          "end": 1698483217421
+          "end": 1698483217421,
+          "date": "1698440400,1698526799",
+          "tags": []
         }
       },
       {
         "key": 1698483243576,
-        "children": [
-          {
-            "key": 1698483301292,
-            "children": [],
-            "todo": {
-              "content": "",
-              "id": 1698483301292,
-              "level": "default",
-              "done": false,
-              "start": 1698483301292
-            }
-          }
-        ],
+        "children": [],
         "todo": {
           "content": "Development phase",
           "id": 1698483243576,
           "level": "default",
           "done": false,
-          "start": 1698483243576
+          "start": 1698483243576,
+          "date": "1698440400,1698526799"
         }
       }
     ],
     "expandKeys": [
-      1698483043578,
+      1698483243576,
       1698482947346,
       1698483012196
     ],
@@ -132,6 +215,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1698483652811"
+    "version": "1698484310468"
   }
 }
