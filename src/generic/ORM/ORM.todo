@@ -51,8 +51,10 @@
                       "content": "SQLConnectionInterface",
                       "id": 1698483731457,
                       "level": "default",
-                      "done": false,
-                      "start": 1698483731457
+                      "done": true,
+                      "start": 1698483731457,
+                      "focus": false,
+                      "end": 1698568518369
                     }
                   },
                   {
@@ -74,8 +76,10 @@
                       "content": "POSTGRESQLConnection",
                       "id": 1698483758765,
                       "level": "default",
-                      "done": false,
-                      "start": 1698483758765
+                      "done": true,
+                      "start": 1698483758765,
+                      "focus": false,
+                      "end": 1698568506803
                     }
                   },
                   {
@@ -216,6 +220,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1698484478821"
+    "version": "1698568518436"
   }
 }
