@@ -23,7 +23,7 @@ public abstract class GeneralConnection {
 
     public abstract Connection connect() throws SQLException, ClassNotFoundException;
 
-    public Connection connect(boolean useAutoCommit) throws SQLException, ClassNotFoundException {
+    public Connection connect(boolean useAutoCommit) throws SQLException {
 
         // set auto commit
         boolean temp = useAutoCommit;

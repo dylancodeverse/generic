@@ -1,7 +1,6 @@
 package generic.ORM.Connection;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 public abstract class GeneralConnection {
 
@@ -13,7 +12,7 @@ public abstract class GeneralConnection {
     public GeneralConnection() {
     }
 
-    public GeneralConnection(String address, String user, String password) {
+    public GeneralConnection(String adress, String user, String password) {
 
         setAddress(address);
         setUser(user);
@@ -21,9 +20,9 @@ public abstract class GeneralConnection {
 
     }
 
-    public abstract Connection connect() throws SQLException, ClassNotFoundException;
+    public abstract Connection connect();
 
-    public Connection connect(boolean useAutoCommit) throws SQLException, ClassNotFoundException {
+    public Connection connect(boolean useAutoCommit) {
 
         // set auto commit
         boolean temp = useAutoCommit;
@@ -38,11 +37,11 @@ public abstract class GeneralConnection {
     }
 
     // GETTERS AND SETTERS
-    public String getAddress() {
+    public String getaddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setaddress(String address) {
         this.address = address;
     }
 

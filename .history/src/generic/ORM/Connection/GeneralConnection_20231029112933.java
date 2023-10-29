@@ -1,7 +1,6 @@
 package generic.ORM.Connection;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 public abstract class GeneralConnection {
 
@@ -21,9 +20,9 @@ public abstract class GeneralConnection {
 
     }
 
-    public abstract Connection connect() throws SQLException, ClassNotFoundException;
+    public abstract Connection connect();
 
-    public Connection connect(boolean useAutoCommit) throws SQLException, ClassNotFoundException {
+    public Connection connect(boolean useAutoCommit) {
 
         // set auto commit
         boolean temp = useAutoCommit;

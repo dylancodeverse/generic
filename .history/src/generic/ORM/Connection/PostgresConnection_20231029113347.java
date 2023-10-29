@@ -11,7 +11,6 @@ public class PostgresConnection extends GeneralConnection {
     {
         // to check if the class exists
         Class.forName("org.postgresql.Driver");
-
         return DriverManager.getConnection("jdbc:postgresql://"+address+"/", user, password) ;
     }
 
