@@ -71,13 +71,11 @@ public abstract class GeneralConnection
         this.password = password;
     }
 
-    public boolean isUseAutoCommit() 
-    {
+    public boolean isUseAutoCommit() {
         return useAutoCommit;
     }
 
-    public void setUseAutoCommit(boolean useAutoCommit) 
-    {
+    public void setUseAutoCommit(boolean useAutoCommit) {
         this.useAutoCommit = useAutoCommit;
     }
 

@@ -56,28 +56,23 @@ public abstract class GeneralConnection
         return user;
     }
 
-    public void setUser(String user) 
-    {
+    public void setUser(String user) {
         this.user = user;
     }
 
-    public String getPassword() 
-    {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) 
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public boolean isUseAutoCommit() 
-    {
+    public boolean isUseAutoCommit() {
         return useAutoCommit;
     }
 
-    public void setUseAutoCommit(boolean useAutoCommit) 
-    {
+    public void setUseAutoCommit(boolean useAutoCommit) {
         this.useAutoCommit = useAutoCommit;
     }
 

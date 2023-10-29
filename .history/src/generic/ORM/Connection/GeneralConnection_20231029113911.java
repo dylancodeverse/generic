@@ -76,8 +76,7 @@ public abstract class GeneralConnection
         return useAutoCommit;
     }
 
-    public void setUseAutoCommit(boolean useAutoCommit) 
-    {
+    public void setUseAutoCommit(boolean useAutoCommit) {
         this.useAutoCommit = useAutoCommit;
     }
 
