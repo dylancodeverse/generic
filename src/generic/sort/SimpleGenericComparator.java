@@ -9,6 +9,7 @@ public class SimpleGenericComparator implements Comparator<Object>
 
     String [] defaultFieldsReference ;
 
+    int order=1;
 
     public SimpleGenericComparator(Object objectInstance, String[] defaultFieldsReference ) throws IllegalArgumentException 
     {
@@ -43,7 +44,7 @@ public class SimpleGenericComparator implements Comparator<Object>
                 response = Reflect.compare(o1Value, o2Value) ;
                 if (response!=0) 
                 {
-                    return response;
+                    return order*response;
                 }           
             } 
             catch (Exception e) 
@@ -58,6 +59,16 @@ public class SimpleGenericComparator implements Comparator<Object>
     public void setDefaultFieldsReference(String [] defaultFieldsReference) 
     {
         this.defaultFieldsReference = defaultFieldsReference;
+    }
+
+
+    public void setOrderToAsc() {
+        order=1;
+    }
+
+
+    public void setOrderToDESC() {
+        order=-1;
     }
 
 }
