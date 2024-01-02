@@ -7,11 +7,11 @@ import generic.util.Generic;
 
 public class Person extends Generic<Person>{
     
-    String name ;
-    int age ;
-    Date dateDeNaissance;
-    boolean isDispo =false ;
-    Physic physic ;
+    protected String name ;
+    protected int age ;
+    protected Date dateDeNaissance;
+    protected boolean isDispo =false ;
+    protected Physic physic ;
 
 
     public Person() {

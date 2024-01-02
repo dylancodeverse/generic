@@ -12,6 +12,7 @@ public class GenericComparator implements Comparator<Object>
 
     String [] defaultFieldsReference ;
     HashMap <String ,DeepField > fields ;
+    int order = 1;
 
     public GenericComparator(Object objectInstance, String[] defaultFieldsReference , HashMap<String, DeepField> deepFields) throws IllegalArgumentException 
     {
@@ -53,7 +54,7 @@ public class GenericComparator implements Comparator<Object>
                 response = Reflect.compare(o1Value, o2Value) ;
                 if (response!=0) 
                 {
-                    return response;
+                    return response*order;
                 }           
             } 
             catch (Exception e) 
@@ -68,9 +69,13 @@ public class GenericComparator implements Comparator<Object>
 
     public void setDefaultFieldsReference(String [] defaultFieldsReference) 
     {
-
-
         this.defaultFieldsReference = defaultFieldsReference;
+    }
+    public void setOrderToDESC(){
+        order = -1;
+    }
+    public void setOrderToAsc(){
+        order=1;
     }
     
 }

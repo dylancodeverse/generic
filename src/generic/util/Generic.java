@@ -56,6 +56,12 @@ public class Generic<T> extends Reflect {
         Arrays.sort(object, new GenericComparator(object[0], defaultReference, deepFields));
     }
 
+    public static void sortDESC(Object[] object, String[] defaultReference, HashMap<String, DeepField> deepFields){
+        GenericComparator g = new GenericComparator(object[0], defaultReference, deepFields);
+        g.setOrderToDESC();
+        Arrays.sort(object,g );
+    }
+
     // MATH SECTION
 
     public T sum(T[] array, String[] fieldsReferences)

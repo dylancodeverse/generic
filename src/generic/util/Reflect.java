@@ -11,6 +11,8 @@ public class Reflect {
         List<String> attributeNames = new ArrayList<>();
 
         Class<?> objClass = obj.getClass();
+
+
         Field[] fields = objClass.getDeclaredFields();
 
         for (Field field : fields) 
@@ -19,6 +21,20 @@ public class Reflect {
             {
                 attributeNames.add(field.getName());
             }
+        }
+
+        while (objClass.getSuperclass() != null) {
+            objClass = objClass.getSuperclass();
+            fields = objClass.getDeclaredFields();
+
+            for (Field field : fields) 
+            {
+                if (!isIgnored(field.getName(), ignore)) 
+                {
+                    attributeNames.add(field.getName());
+                }
+            }
+
         }
 
         return attributeNames.toArray(new String [attributeNames.size()]);
@@ -126,8 +142,22 @@ public class Reflect {
 
     public static Object getValue(Object o , DeepField deepField ) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException
     {
-        
-        Field o1Field = o.getClass().getDeclaredField(deepField.getField());
+        Field o1Field = null;
+        try {
+            o1Field =  o.getClass().getDeclaredField(deepField.getField());
+        } catch (NoSuchFieldException e) {
+            Class<?> t = o.getClass();
+            while (t.getSuperclass()!=null) {
+                t = o.getClass().getSuperclass();
+                try {
+                    o1Field = t.getDeclaredField(deepField.getField());                           
+                    break;
+                } catch (NoSuchFieldException e2) {}
+            }
+            if (o1Field==null) {
+                throw e;
+            }
+        }
         o1Field.setAccessible(true);
         Object value = o1Field.get(o);
         
