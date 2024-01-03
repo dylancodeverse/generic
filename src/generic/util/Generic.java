@@ -8,6 +8,7 @@ import java.util.HashMap;
 import generic.jsp.Form;
 import generic.maths.Math;
 import generic.sort.GenericComparator;
+import generic.sort.MethodGenericComparator;
 import generic.sort.SimpleGenericComparator;
 
 public class Generic<T> extends Reflect {
@@ -66,6 +67,17 @@ public class Generic<T> extends Reflect {
         GenericComparator g = new GenericComparator(object[0], defaultReference, deepFields);
         g.setOrderToDESC();
         Arrays.sort(object,g );
+    }
+
+    public static void sortUsingMethod(Object[]object , String [] method){
+        MethodGenericComparator m = new MethodGenericComparator(object[0], method);
+        Arrays.sort(object ,m);
+    }
+
+    public static void sortUsingMethodDESC(Object[]object , String [] method){
+        MethodGenericComparator m = new MethodGenericComparator(object[0], method);
+        m.setOrderToDESC();
+        Arrays.sort(object ,m);
     }
 
     // MATH SECTION

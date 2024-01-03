@@ -1,6 +1,8 @@
 package generic.util;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +42,40 @@ public class Reflect {
         return attributeNames.toArray(new String [attributeNames.size()]);
 
     }
+
+    public static String [] getMethodsName(Object ob ,String ... ignore){
+        List<String> methodsName = new ArrayList<>();
+
+        Class<?> objClass = ob.getClass();
+
+
+        Method[] methods = objClass.getDeclaredMethods();
+
+        for (Method method : methods) 
+        {
+            if (!isIgnored(method.getName(), ignore)) 
+            {
+                methodsName.add(method.getName());
+            }
+        }
+
+        while (objClass.getSuperclass() != null) {
+            objClass = objClass.getSuperclass();
+            methods = objClass.getDeclaredMethods();
+
+            for (Method method : methods) 
+            {
+                if (!isIgnored(method.getName(), ignore)) 
+                {
+                    methodsName.add(method.getName());
+                }
+            }
+
+        }
+
+        return methodsName.toArray(new String [methodsName.size()]);
+    }
+
 
     public Object[] getAttributeValue(Object obj, String... ignore) 
     {
@@ -135,6 +171,29 @@ public class Reflect {
         return o1Field.get(o);
 
     }
+
+    public static Object getValueFromMethod(Object o , String methodName) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException{
+        Method o1Method = null;
+        try {
+            o1Method =  o.getClass().getDeclaredMethod(methodName);
+        } catch (NoSuchMethodException e) {
+            Class<?> t = o.getClass();
+            while (t.getSuperclass()!=null) {
+                t = o.getClass().getSuperclass();
+                try {
+                    o1Method = t.getDeclaredMethod(methodName);                           
+                    break;
+                } catch (NoSuchMethodException e2) {}
+            }
+            if (o1Method==null) {
+                throw e;
+            }
+        }
+        o1Method.setAccessible(true);
+        Object value = o1Method.invoke(o);
+        return value;        
+    }
+
 
     /*
      * recursion pour eviter de faire une clone si iteration
